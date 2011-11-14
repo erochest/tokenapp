@@ -1,7 +1,5 @@
 Tokenapp::Application.routes.draw do
-  get "freq/home"
-
-  get "freq/freq"
+  root :to => 'freq#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
