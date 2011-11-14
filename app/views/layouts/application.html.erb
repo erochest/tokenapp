@@ -33,15 +33,17 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
-  <div role="main">
-
+  <div id="container">
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    <div role="main">
+      <%= yield %>
+    </div>
+    <footer>
+      <%= render 'layouts/header' %>
+    </footer>
   </div>
-  <footer>
-
-  </footer>
 
 
   <!-- JavaScript at the bottom for fast page loading -->
