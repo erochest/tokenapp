@@ -14,6 +14,16 @@ describe FreqController do
       response.should have_selector('title',
                                     :content => 'Token Frequencies')
     end
+
+    it "should have a place for the user to copy and paste in a text document" do
+      get 'home'
+      response.should have_selector('textarea', :id => 'input_text')
+    end
+
+    it "should have a submit button" do
+      get 'home'
+      response.should have_selector('input', :type => 'submit', :value => 'Submit')
+    end
   end
 
   describe "GET 'freq'" do
