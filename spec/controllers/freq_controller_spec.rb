@@ -26,7 +26,8 @@ describe FreqController do
     end
 
     it "should force the user to enter data" do
-      get 'home'
+      post :freq, :input_text => ""
+      response.should render_template('freq')
     end
   end
 
