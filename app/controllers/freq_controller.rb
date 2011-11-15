@@ -1,7 +1,7 @@
 class FreqController < ApplicationController
   def home
     @title = 'Token Frequencies'
-    @freq = FreqModel.new
+    @freq = Freq.new
   end
 
   def freq
