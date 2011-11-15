@@ -1,10 +1,24 @@
 class FreqModel
-  def initialize(input)
-    @input = input
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
+
+  attr_accessor :input_text
+
+  validates :input_text, :presence => true
+
+  def initialize(attributes = {})
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
+  end
+
+  def persisted?
+    false
   end
 
   def tokens
-    @input.split.map { |token| normalize(token) }
+    @input_text.split.map { |token| normalize(token) }
   end
 
   def normalize(token)
