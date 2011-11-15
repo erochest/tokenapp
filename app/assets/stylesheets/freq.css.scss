@@ -1,15 +1,19 @@
 // Place all the styles related to the Freq controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-ul.form li {
+.field {
+  margin: 20px;
   list-style: none;
   width: 600px;
 }
-#input_text {
+#freq_model_input_text {
   width: 600px;
   height: 370px;
 }
-ul.form input {
+.actions {
+  width: 600px;
+}
+.actions input {
   float: right;
   margin: 3px;
 }
