@@ -64,5 +64,10 @@ describe FreqController do
       response.should_not have_selector('dd', :content => '3')
       response.should_not have_selector('dd', :content => '4')
     end
+
+    it "should have a link back to the input form" do
+      post :freq, :freq => { :input_text => 'something' }
+      response.should have_selector('a', :content => 'Back', :href => root_url)
+    end
   end
 end
