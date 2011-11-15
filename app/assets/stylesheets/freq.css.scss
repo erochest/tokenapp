@@ -17,3 +17,19 @@
     margin: 3px;
   }
 }
+
+.freqlist {
+  dt {
+    width: 100px;
+    font-style: bold;
+    background: #6a94d4;
+    color: white;
+    float: left;
+    padding: 1px;
+  }
+  dd {
+    width: 100px;
+    margin-left: 125px;
+    padding: 1px;
+  }
+}
