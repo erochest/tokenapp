@@ -18,7 +18,9 @@ class Freq
   end
 
   def tokens
-    @input_text.split.map { |token| normalize(token) }
+    @input_text.split
+               .map { |token| normalize(token) }
+               .select { |token| ! token.empty? }
   end
 
   def normalize(token)
