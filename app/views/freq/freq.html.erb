@@ -1,2 +1,7 @@
-<h1>Freq#freq</h1>
-<p>Find me in app/views/freq/freq.html.erb</p>
+<h1>Token Frequencies</h1>
+
+<dl>
+  <% @freq_a.each do |token, freq| %>
+  <dt><%= token %></dt> <dd><%= freq %></dd>
+  <% end %>
+</dl>

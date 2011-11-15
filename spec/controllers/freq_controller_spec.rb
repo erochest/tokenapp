@@ -46,5 +46,23 @@ describe FreqController do
       post :freq, :freq => { :input_text => " " }
       response.should redirect_to('/')
     end
+
+    it "should display the tokens in the input text and their frequencies" do
+      # I've already tested tokenization and counting in the specs for the Freq
+      # model, so this just has a few sanity checks.
+      post :freq, :freq => { :input_text => 'The quick brown fox jumped over the lazy dog.' }
+
+      response.should have_selector('dt', :content => 'the')
+      response.should have_selector('dt', :content => 'fox')
+      response.should have_selector('dt', :content => 'lazy')
+
+      response.should_not have_selector('dt', :content => '/^a$/')
+      response.should_not have_selector('dt', :content => '/^blue$/')
+
+      response.should have_selector('dd', :content => '1')
+      response.should have_selector('dd', :content => '2')
+      response.should_not have_selector('dd', :content => '3')
+      response.should_not have_selector('dd', :content => '4')
+    end
   end
 end
