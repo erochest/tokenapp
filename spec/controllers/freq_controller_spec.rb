@@ -26,9 +26,9 @@ describe FreqController do
     end
   end
 
-  describe "GET 'freq'" do
+  describe "POST 'freq'" do
     it "returns http success" do
-      get 'freq'
+      post 'freq'
       response.should be_success
     end
   end

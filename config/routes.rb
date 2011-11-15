@@ -1,5 +1,6 @@
 Tokenapp::Application.routes.draw do
   root :to => 'freq#home'
+  post 'freq/freq'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
