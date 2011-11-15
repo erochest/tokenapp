@@ -5,6 +5,10 @@ class FreqController < ApplicationController
   end
 
   def freq
+    @freq = Freq.new(params[:freq])
+    if @freq.input_text.length.zero?
+      redirect_to root_url
+    end
   end
 
 end

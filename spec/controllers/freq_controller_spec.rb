@@ -26,14 +26,19 @@ describe FreqController do
     end
 
     it "should force the user to enter data" do
-      post :freq, :input_text => ""
+      post :freq, :freq => { :input_text => "" }
+      response.should redirect_to('/')
+    end
+
+    it "should go to freq page when the user submits data" do
+      post :freq, :freq => { :input_text => "This is some input.\nMore input." }
       response.should render_template('freq')
     end
   end
 
   describe "POST 'freq'" do
     it "returns http success" do
-      post 'freq'
+      post 'freq', :freq => { :input_text => 'Input.' }
       response.should be_success
     end
   end
