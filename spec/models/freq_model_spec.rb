@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe FreqModel do
+describe Freq do
   describe "tokens" do
     before(:each) do
-      fm = FreqModel.new(:input_text => 'The quick brown fox jumped over the lazy dog.')
+      fm = Freq.new(:input_text => 'The quick brown fox jumped over the lazy dog.')
       @tokens = fm.tokens
     end
 
@@ -26,7 +26,7 @@ describe FreqModel do
 
   describe "freqs" do
     before(:each) do
-      fm = FreqModel.new(:input_text => 'The quick brown fox jumped over the lazy dog.')
+      fm = Freq.new(:input_text => 'The quick brown fox jumped over the lazy dog.')
       @freqs = fm.freqs
     end
 
