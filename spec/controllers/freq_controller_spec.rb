@@ -25,11 +25,6 @@ describe FreqController do
       response.should have_selector('input', :type => 'submit', :value => 'Submit')
     end
 
-    it "should force the user to enter data" do
-      post :freq, :freq => { :input_text => "" }
-      response.should redirect_to('/')
-    end
-
     it "should go to freq page when the user submits data" do
       post :freq, :freq => { :input_text => "This is some input.\nMore input." }
       response.should render_template('freq')
@@ -40,6 +35,16 @@ describe FreqController do
     it "returns http success" do
       post 'freq', :freq => { :input_text => 'Input.' }
       response.should be_success
+    end
+
+    it "should redirect to / if there is no input." do
+      post :freq, :freq => { :input_text => "" }
+      response.should redirect_to('/')
+    end
+
+    it "should redirect to / if the input is empty." do
+      post :freq, :freq => { :input_text => " " }
+      response.should redirect_to('/')
     end
   end
 end
